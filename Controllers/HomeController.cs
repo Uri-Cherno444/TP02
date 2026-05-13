@@ -18,9 +18,13 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    public IActionResult generarReceta(Receta R)
     {
-        return View();
+        Viewbag.tiempo = R.calcularTiempo();
+        Viewbag.dificultad=R.DeterminarDificultad();
+        Viewbag.plato=R.DeterminarPlato();
+
+        return View("resutado");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

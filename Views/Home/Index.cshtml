@@ -2,7 +2,17 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="formulario">
+    
+    <form action='@Url.Action("Datos", "Home")' method="post" enctype="multipart/form-data">
+            Nombre Completo: <input type="text" name="nombreCocinero"><br>
+            Fecha de nacimiento: <input type="date" name="fecha"><br>
+            Tipo de comida: <input type="radio" name="tipoComida"><br> 
+                            <input type="radio" name="tipoComida" value="caliente"> Caliente <br>
+                            <input type="radio" name="tipoComida" value="frio">Frio
+            Presupuesto: <input type="number" name="presupuesto" min = "1"><br>
+            Cantidad de Personas: <input type = "number"  max ="20" min = "1" name = "cantPersonas"><br>
+
+            <button type="sumbit">Enviar</button>
+        </form>
 </div>
