@@ -20,11 +20,15 @@ public class HomeController : Controller
 
     public IActionResult generarReceta(Receta R)
     {
-        Viewbag.tiempo = R.calcularTiempo();
-        Viewbag.dificultad=R.DeterminarDificultad();
-        Viewbag.plato=R.DeterminarPlato();
+        ViewBag.tiempo = R.calcularTiempo(R);
+        ViewBag.dificultad=R.DeterminarDificultad(R);
+        ViewBag.plato=R.DeterminarPlato(R);
+        ViewBag.cantPersonas = R.cantPersonas;
+        ViewBag.nombreCocinero = R.nombreCocinero;
+        ViewBag.edad = R.calcularEdad();
+        
 
-        return View("resutado");
+        return View("Resultado");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
